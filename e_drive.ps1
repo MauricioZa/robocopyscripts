@@ -17,13 +17,14 @@ $PathRobocopyLogs    = "C:\Robolog"
 $NameRobocopyLog     = "robolog.log"
 $RobocopyLogFile     = $PathRobocopyLogs + '\' + $NameRobocopyLog 
 
+
 # -------------------------------------
 # Map Azure Files
 # -------------------------------------
 
 # Share constructor
 $AzureUser            = "/user:Azure\"+$StorageAccountName
-$StorageKey           = <insert your key here>
+$StorageKey           = 'T8eHfyFR7xBWo9KnikB8trl3jXx3fhHM4qnY5R4nv7TtL2cz8jnVJhSy+gGLT6DZg98LKEB080pW+ASt/L7eAw=='
 net use $letterAzure /d
 net use $letterAzure $uncPathAzure $AzureUser $StorageKey
 
@@ -46,24 +47,38 @@ else {
 Write-host
 $RetainLogsResponse = Read-Host "Do you want to log activity for this robocopy execution? y/n"
 
-if ($RetainLogsResponse='n') {
+if ($RetainLogsResponse -eq 'n') {
     # Without logs (performance):
-    
+    Write-host 
     Write-host 'Logs are NOT going to be saved' -Foregroundcolor green
     Write-host 'SOURCE        :'$SourcePathOnPremises -Foregroundcolor green
     Write-host 'DESTINATION   :'$uncPathAzure -Foregroundcolor green
     Write-Host
-    Read-Host "Press enter to continue. Or Ctrl+C to cancel" 
-    robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL
+    $Continue = Read-Host "Press enter to continue. Or C to cancel" 
+    If ($Continue -eq 'c' -or $Continue -eq 'C') {
+        exit
+    }
+    Else {
+        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL
+    }
+    
 }
-elseif ($RetainLogsResponse='y') {
+elseif ($RetainLogsResponse -eq 'y') {
 
     # With logs (logging):
-
+    Write-host 
     Write-host 'Logs will be saved to' $RobocopyLogFile -Foregroundcolor green
     Write-host 'SOURCE        :'$SourcePathOnPremises -Foregroundcolor green
     Write-host 'DESTINATION   :'$uncPathAzure -Foregroundcolor green
     Write-Host
-    Read-Host "Press enter to continue. Or Ctrl+C to cancel" 
-    robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /LOG+:$RobocopyLogFile
+    Read-Host "Press enter to continue. C to cancel" 
+    If ($Continue -eq 'c' -or $Continue -eq 'C') {
+        exit
+    }
+    Else {
+        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /LOG:$RobocopyLogFile
+    }
+    
 }
+
+# Git
