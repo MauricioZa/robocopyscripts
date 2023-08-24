@@ -11,7 +11,7 @@ $uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\work"
 
 # OnPremises share info
 $SourcePathOnPremises = "E:\DATA\WORK"
-$ExcludeFolders = 'folder1 folder2 folder3 folder4'
+$ExcludeFolders = '<folder1> <folder2> <folder3>'
 
 # Robocopy log file variables
 $PathRobocopyLogs    = "C:\Robolog"
