@@ -11,6 +11,7 @@ $uncPathAzure         = "\\themayancoffee.file.core.windows.net\share"
 
 # OnPremises share info
 $SourcePathOnPremises = "c:\mau"
+$ExcludeFolders = 'folder1 folder2 folder3 folder4'
 
 # Robocopy log file variables
 $PathRobocopyLogs    = "C:\Robolog"

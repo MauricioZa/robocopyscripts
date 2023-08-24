@@ -11,6 +11,7 @@ $uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\work"
 
 # OnPremises share info
 $SourcePathOnPremises = "E:\DATA\WORK"
+$ExcludeFolders = 'folder1 folder2 folder3 folder4'
 
 # Robocopy log file variables
 $PathRobocopyLogs    = "C:\Robolog"
@@ -24,7 +25,7 @@ $RobocopyLogFile     = $PathRobocopyLogs + '\' + $NameRobocopyLog
 
 # Share constructor
 $AzureUser            = "/user:Azure\"+$StorageAccountName
-$StorageKey           = 'T8eHfyFR7xBWo9KnikB8trl3jXx3fhHM4qnY5R4nv7TtL2cz8jnVJhSy+gGLT6DZg98LKEB080pW+ASt/L7eAw=='
+$StorageKey           = '<insert key>'
 net use $letterAzure /d
 net use $letterAzure $uncPathAzure $AzureUser $StorageKey
 
@@ -80,5 +81,3 @@ elseif ($RetainLogsResponse -eq 'y') {
     }
     
 }
-
-# Git
