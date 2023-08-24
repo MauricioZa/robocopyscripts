@@ -59,7 +59,7 @@ if ($RetainLogsResponse -eq 'n') {
         exit
     }
     Else {
-        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL
+        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL /XD $ExcludeFolders
     }
     
 }
@@ -76,7 +76,7 @@ elseif ($RetainLogsResponse -eq 'y') {
         exit
     }
     Else {
-        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /LOG:$RobocopyLogFile
+        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /XD $ExcludeFolders /LOG:$RobocopyLogFile
     }
     
 }
