@@ -49,13 +49,21 @@ $RetainLogsResponse = Read-Host "Do you want to log activity for this robocopy e
 if ($RetainLogsResponse='n') {
     # Without logs (performance):
     
-    Write-host 'Logs are NOT going to be saved'
+    Write-host 'Logs are NOT going to be saved' -Foregroundcolor green
+    Write-host 'SOURCE        :'$SourcePathOnPremises -Foregroundcolor green
+    Write-host 'DESTINATION   :'$uncPathAzure -Foregroundcolor green
+    Write-Host
+    Read-Host "Press enter to continue. Or Ctrl+C to cancel" 
     robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL
 }
 elseif ($RetainLogsResponse='y') {
 
     # With logs (logging):
 
-    Write-host 'Logs will be saved to' $RobocopyLogFile
+    Write-host 'Logs will be saved to' $RobocopyLogFile -Foregroundcolor green
+    Write-host 'SOURCE        :'$SourcePathOnPremises -Foregroundcolor green
+    Write-host 'DESTINATION   :'$uncPathAzure -Foregroundcolor green
+    Write-Host
+    Read-Host "Press enter to continue. Or Ctrl+C to cancel" 
     robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /LOG+:$RobocopyLogFile
 }
