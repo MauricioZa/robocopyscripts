@@ -6,16 +6,16 @@
 $StorageAccountName   = "pbspszqarzcp001"
 
 # Azure file share info
-$letterAzure          = "x:"
-$uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\D_Drive"
+$letterAzure          = "y:"
+$uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\R_Drive"
 
 # OnPremises share info
-$SourcePathOnPremises = "D:\"
-$ExcludeFolders = '$RECYCLE.BIN Backup_DisableSweet32 Backup_DisableTLS1.0 FileServerMetricsCollection Netbackup Restore System Volume Information'
+$SourcePathOnPremises = "R:\File Server"
+$ExcludeFolders = 'BK_Desvinculaciones DesarrolloInstallers lotus'
 
 # Robocopy log file variables
 $PathRobocopyLogs    = "C:\Robolog"
-$NameRobocopyLog     = "robolog_D.log"
+$NameRobocopyLog     = "robolog_R.log"
 $RobocopyLogFile     = $PathRobocopyLogs + '\' + $NameRobocopyLog 
 
 

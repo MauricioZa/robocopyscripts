@@ -15,7 +15,7 @@ $ExcludeFolders = '<folder1> <folder2> <folder3>'
 
 # Robocopy log file variables
 $PathRobocopyLogs    = "C:\Robolog"
-$NameRobocopyLog     = "robolog.log"
+$NameRobocopyLog     = "robolog_E.log"
 $RobocopyLogFile     = $PathRobocopyLogs + '\' + $NameRobocopyLog 
 
 
