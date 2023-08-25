@@ -7,7 +7,7 @@ $StorageAccountName   = "pbspszqarzcp001"
 
 # Azure file share info
 $letterAzure          = "y:"
-$uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\R_Drive"
+$uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\r-drive"
 
 # OnPremises share info
 $SourcePathOnPremises = "R:\File Server"
