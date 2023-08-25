@@ -24,7 +24,7 @@ $RobocopyLogFile     = $PathRobocopyLogs + '\' + $NameRobocopyLog
 
 # Share constructor
 $AzureUser            = "/user:Azure\"+$StorageAccountName
-$StorageKey           = 'T8eHfyFR7xBWo9KnikB8trl3jXx3fhHM4qnY5R4nv7TtL2cz8jnVJhSy+gGLT6DZg98LKEB080pW+ASt/L7eAw=='
+$StorageKey           = ''
 net use $letterAzure /d
 net use $letterAzure $uncPathAzure $AzureUser $StorageKey
 
