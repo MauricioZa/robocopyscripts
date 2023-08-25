@@ -11,7 +11,7 @@ $uncPathAzure         = "\\pbspszqarzcp001.file.core.windows.net\work"
 
 # OnPremises share info
 $SourcePathOnPremises = "E:\DATA\WORK"
-$ExcludeFolders = '<folder1> <folder2> <folder3>'
+$ExcludeFolders = 'a borrar' 'a migrar'
 
 # Robocopy log file variables
 $PathRobocopyLogs    = "C:\Robolog"
@@ -60,7 +60,7 @@ if ($RetainLogsResponse -eq 'n') {
         exit
     }
     Else {
-        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL /XD $ExcludeFolders
+        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /NP /NFL /NDL /XD "a borrar" "a migrar"
     }
     
 }
@@ -77,7 +77,7 @@ elseif ($RetainLogsResponse -eq 'y') {
         exit
     }
     Else {
-        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /XD $ExcludeFolders /LOG:$RobocopyLogFile
+        robocopy $SourcePathOnPremises $letterAzure /E /COPY:DATS /DCOPY:DAT /MIR /R:1 /W:1 /MT:128 /V /XD "a borrar" "a migrar" /LOG:$RobocopyLogFile
     }
     
 }
