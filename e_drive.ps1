@@ -45,8 +45,9 @@ else {
 # -------------------------------------
 # Robocopy process
 # -------------------------------------
-Write-host
+Write-host '----------------------------------------------------------------------------------------'
 $RetainLogsResponse = Read-Host "Do you want to log activity for this robocopy execution? y/n"
+Write-host '----------------------------------------------------------------------------------------'
 
 if ($RetainLogsResponse -eq 'n') {
     # Without logs (performance):
